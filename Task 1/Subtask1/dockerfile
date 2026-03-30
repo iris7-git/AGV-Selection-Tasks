@@ -1,0 +1,13 @@
+FROM python:3.13.6
+
+
+# No GUI system libraries needed for headless OpenCV
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+# Copy your code and video
+COPY subtask1.py .
+COPY OPTICAL_FLOW.mp4 .
+
+# Run the headless script
+CMD ["python", "subtask1.py"]
